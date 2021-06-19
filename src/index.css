@@ -12,6 +12,7 @@ a {
 }
 
 .app-main {
+  height: 100vh;
   background: #84ceeb;
   display: flex;
   flex-direction: column;
@@ -22,6 +23,8 @@ a {
 /* --------------------------------TopNav--------------------------- */
 
 .navbar {
+  position: fixed;
+  top: 0;
   display: flex;
   width: 100vw;
 }
