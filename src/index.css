@@ -7,15 +7,23 @@
   font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-main {
+a {
+  color: #fff;
+}
+
+.app-main {
   background: #84ceeb;
-  height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  color: #333;
+  color: #444;
+}
+
+/* --------------------------------TopNav--------------------------- */
+
+.navbar {
+  display: flex;
+  width: 100vw;
 }
 
 .btn-container {

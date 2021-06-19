@@ -1,18 +1,14 @@
-import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom"; 
-import './index.css';
-// import TopNav from "./components/TopNav";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Login from "./Login";
+import Signup from "./Signup";
 
 
+const Home = () => {
 
-function App() {
   return (
-    <BrowserRouter>
-    <div className="app-main">
-        <nav className="navbar">
-        <h3>Web.com</h3>
+    <div>
+      <h1>Welcome to web.com</h1>
+      <BrowserRouter>
         <div className="btn-container">
           <button className="main-btn">
             <Link to="/login">Log In</Link>
@@ -20,11 +16,10 @@ function App() {
           <button className="main-btn">
             <Link to="/signup">Sign up</Link>
           </button>
-          </div>
-        </nav>
-
-{/* -------------------------------------------------------------------------- */}
             <Switch>
+              <Route exact path="/">
+                <Home/>
+              </Route>
               <Route path="/login" >
                 <Login/>
               </Route>
@@ -32,10 +27,10 @@ function App() {
                 <Signup/>
               </Route>
             </Switch>
+        </div>
+          </BrowserRouter>
     </div>
-  </BrowserRouter>
-  );
+  )
 }
 
-export default App;
-
+export default Home;
