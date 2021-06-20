@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
+#root {
+  --btn-color: #8860d0;
+  --hover-color: #573792;
+  --accent-color: #c3a2ff;
+  --transition: all 0.4s;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +16,13 @@
 
 a {
   color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+h1 {
+  margin: 2rem;
+  font-size: 2rem;
 }
 
 .app-main {
@@ -26,7 +40,10 @@ a {
   position: fixed;
   top: 0;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100vw;
+  border-top: solid 6px var(--btn-color);
 }
 
 .btn-container {
@@ -35,7 +52,7 @@ a {
 }
 
 .main-btn {
-  background: #8860d0;
+  background: var(--btn-color);
   padding: 10px;
   width: 8rem;
   margin-right: 1rem;
@@ -47,6 +64,65 @@ a {
 }
 
 .main-btn:hover {
-  background: #573792;
-  transition: all 0.4s;
+  background: var(--hover-color);
+  transition: var(--transition);
+}
+
+/* ----------------------------------------LOGIN-------------------------------------- */
+
+.login {
+  margin: auto;
+}
+
+.form-window {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+.form-window h3 {
+  color: #555;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input {
+  padding: 0.5rem;
+  min-width: 250px;
+  background-color: rgb(243, 243, 243);
+  border: none;
+  margin-top: 1rem;
+}
+
+form span {
+  color: crimson;
+}
+
+.register-btn {
+  padding: 0.6rem;
+  margin-top: 1rem;
+  background: var(--btn-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.register-btn:hover {
+  background: var(--hover-color);
+  transition: var(--transition);
+}
+
+.success-msg {
+  background-color: #00d98b;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  color: #555;
+  font-weight: bolder;
 }

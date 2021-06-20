@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom"; 
 import './index.css';
 // import TopNav from "./components/TopNav";
-import Login from "./components/Login";
+import LogIn from "./components/Login";
 import Signup from "./components/Signup";
 
 
@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
     <div className="app-main">
         <nav className="navbar">
-        <h3>Web.com</h3>
+        <h1>Web.com</h1>
         <div className="btn-container">
           <button className="main-btn">
             <Link to="/login">Log In</Link>
@@ -26,7 +26,7 @@ function App() {
 {/* -------------------------------------------------------------------------- */}
             <Switch>
               <Route path="/login" >
-                <Login/>
+                <LogIn/>
               </Route>
               <Route path="/signup">
                 <Signup/>

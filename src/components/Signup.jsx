@@ -3,10 +3,45 @@
 const Signup = () => {
 
   return (
-    <div>
-      <h1>Sign up Page</h1>
-      <h3>This is the Sign Up Page</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad magni eos itaque officia provident accusamus excepturi id, ut libero quisquam tempore totam nam nesciunt fugiat similique distinctio autem eaque rem nisi eius aliquam reprehenderit, unde velit. Et assumenda id distinctio voluptate ipsa, cupiditate corrupti amet quidem delectus numquam, accusamus esse itaque maxime sapiente! Eum, aliquid vitae quasi labore est reprehenderit. Dolorem nesciunt illo quasi molestiae nulla amet fugiat, ratione illum quos, ipsam cum mollitia accusamus dolore, nisi hic provident aperiam nobis rem nostrum expedita iusto rerum assumenda? Ducimus minus tempora pariatur! Ex architecto vero iure amet numquam neque non eos adipisci rem accusantium earum nulla fugit doloribus facere ipsa delectus quasi, quae quibusdam quisquam odit aspernatur aliquid animi? Atque nam hic doloremque expedita sit at. Minima dolores veritatis maxime fugiat repudiandae quos odio numquam deleniti doloribus ratione, expedita temporibus itaque quaerat harum distinctio soluta aspernatur maiores. Quam repellendus non dolores corporis at, accusantium esse consequatur suscipit, molestias amet enim perferendis explicabo. Inventore esse nemo possimus temporibus minus autem. Quos ducimus aperiam temporibus incidunt similique. Aperiam ducimus labore itaque nobis consequatur dolor incidunt voluptatem atque autem facere qui repellendus, optio ipsum reiciendis sequi magnam! Aliquam vel facere officia maiores molestias doloribus?</p>
+    <div className="sign-up">
+      <div className="sign-up-container">
+        <form action="submit">
+          <div className="sign-up-basic">
+            <h4>Personal Information</h4>
+            <input type="text" name="fullName" placeholder="Full Name"/>
+            <input type="email" name="email"  placeholder="Email"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <input type="password" name="confirmPassword" placeholder="Re-enter Password"/>
+          </div>
+          <div className="sign-up-birthday">
+            <h4>Date of Birth</h4>
+              <input type="text" name="month" placeholder="MM"/>
+              <input type="text" name="day" placeholder="DD"/>
+              <input type="text" name="year" placeholder="YYYY"/>
+          </div>
+          <div className="sign-up-birthday">
+            <label htmlFor="gender-male">Male</label>
+            <input type="radio" name="gender" value="male" id="gender-male"/>
+            <label htmlFor="gender-female">Female</label>
+            <input type="radio" name="gender" value="female" id="gender-female"/>
+          </div>
+          <div className="sign-up-payment">
+            <label htmlFor="payment-method-card"><span>Credit Card</span></label>
+            <input type="radio" name="payment-method" value="card" id="payment-method-card" checked="true" />
+            <label htmlFor="payment-method-card"><span>Paypal</span></label>
+            <input type="radio" name="payment-method" value="paypal" id="payment-method-paypal" />
+            <input type="text" placeholder="Card Number" />
+            <input type="text" placeholder="Card CVC" />
+            <select name="" id="">
+              <option value=""></option>
+              <option value=""></option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      
+      
     </div>
   )
 }
