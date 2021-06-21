@@ -30,7 +30,7 @@ const LogIn = () => {
   return (
     <div className="login">
       <div className="form-window">
-      <h3>Create an Account</h3>
+      <h3>Log in</h3>
       {submitted && valid ? <div className="success-msg">Success! Thank you for registering.</div> : null}
       <form onSubmit={handleSubmit} action="submit" className="form-container">
         <input 
@@ -60,7 +60,7 @@ const LogIn = () => {
           required 
         />
           {submitted && !values.email ? <span>Please enter a valid email address</span> : null}      
-        <button className="register-btn">Register</button>
+        <button className="login-btn">Log in</button>
       </form>
     </div>
   </div>

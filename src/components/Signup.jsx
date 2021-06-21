@@ -36,13 +36,36 @@ const Signup = () => {
             </div>
             {/* -------------------------------------------------- */}
             <input type="text" placeholder="Card Number" />
-            <input type="text" placeholder="Card CVC" />
-            <select name="" id="">
-              <option value=""></option>
-              <option value=""></option>
-            </select>
+            <div className="sign-up-payment-box select">
+              <input type="text" placeholder="Card CVC" />
+              <select name="month" id="card-month">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              <select name="year" id="card-year">
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+              </select>
+            </div>
           </div>
         </form>
+        <button>Reset</button>
+        <button>Submit</button>
       </div>
 
       
