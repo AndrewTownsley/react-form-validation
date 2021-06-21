@@ -12,15 +12,15 @@ function App() {
     <BrowserRouter>
     <div className="app-main">
         <nav className="navbar">
-        <h1>Web.com</h1>
-        <div className="btn-container">
-          <button className="main-btn">
-            <Link to="/login">Log In</Link>
-          </button>
-          <button className="main-btn">
-            <Link to="/signup">Sign up</Link>
-          </button>
-          </div>
+          <h1>Web.com</h1>
+            <div className="btn-container">
+              <Link to="/login">
+                <button className="main-btn">Log In</button>
+              </Link>
+              <Link to="/signup">
+                  <button className="main-btn">Sign Up</button>
+              </Link>
+            </div>
         </nav>
 
 {/* -------------------------------------------------------------------------- */}
