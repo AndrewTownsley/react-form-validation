@@ -27,6 +27,7 @@ a {
 h1 {
   margin: 2rem;
   font-size: 2rem;
+  color: #fff;
 }
 
 h4 {
@@ -35,7 +36,8 @@ h4 {
 
 .app-main {
   height: 100vh;
-  background: #69b6d4;
+  /* background: #69b6d4; */
+  background: #121d49;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,6 +89,9 @@ h4 {
   background: #fff;
   border-radius: 5px;
   max-width: 400px;
+  box-shadow: 3px 3px 7px 2px rgba(119, 119, 119, 0.3);
+  -moz-box-shadow: 3px 3px 7px 2px rgba(119, 119, 119, 0.3);
+  -webkit-box-shadow: 3px 3px 7px 2px rgba(119, 119, 119, 0.3);
 }
 
 .form-window h3 {
@@ -147,6 +152,9 @@ form span {
   background: #fff;
   padding: 2rem;
   border-radius: 5px;
+  box-shadow: 3px 3px 7px 2px rgba(119, 119, 119, 0.3);
+  -moz-box-shadow: 3px 3px 7px 2px rgba(119, 119, 119, 0.3);
+  -webkit-box-shadow: 3px 3px 7px 2px rgba(119, 119, 119, 0.3);
 }
 
 .sign-up-form {
@@ -207,9 +215,10 @@ form span {
 .sign-up-payment label {
   display: inline-block;
   background-color: var(--light-gray-bg);
-  border: 1px solid #e5e5e5;
-  padding: 10px 20px;
   border-radius: var(--brad-input);
+  border: solid 1px var(--gray-border);
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .sign-up-gender input[type="radio"]:checked + label,
@@ -229,4 +238,15 @@ form span {
   border: solid 1px var(--gray-border);
   margin-left: 1rem;
   margin-bottom: 1rem;
+}
+
+.sign-up-btn {
+  border: var(--gray-border);
+  background: var(--btn-color);
+  color: #fff;
+  padding: var(--pad-input);
+  border-radius: var(--brad-input);
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  width: 80px;
 }

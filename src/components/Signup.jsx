@@ -1,6 +1,12 @@
-
+import React, { useState } from "react";
 
 const Signup = () => {
+  const [values, setValues] = useState({
+    fullName: "",
+  })
+
+  const [submitted, setSubmitted] = useState(false);
+  const [valid, setValid] = useState(false);
 
   return (
     <div className="sign-up">
@@ -64,8 +70,8 @@ const Signup = () => {
             </div>
           </div>
         </form>
-        <button>Reset</button>
-        <button>Submit</button>
+        <button className="sign-up-btn">Reset</button>
+        <button className="sign-up-btn">Submit</button>
       </div>
 
       
