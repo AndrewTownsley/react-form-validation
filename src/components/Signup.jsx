@@ -26,6 +26,9 @@ const Signup = () => {
   const handlePasswordChange = (event) => {
     setValues({...values, password: event.target.value})
   }
+  // const handleConfirmPasswordChange = (event) => {
+  //   setValues({...values, confirmPassword: event.target.value})
+  // }
   const handleMonthChange = (event) => {
     setValues({...values, month: event.target.value})
   }
@@ -54,9 +57,10 @@ const Signup = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Check that all fields are filled out 
-    if(values.name && values.email && values.password && values.month && values.day && values.year && values.card && values.cvc)
+    if(values.name && values.email && values.password && values.month && values.day && values.year && values.card && values.cvc && matchPassword)
     setValid(true);
     setSubmitted(true);
+    setMatchPassword(true);
   }
  
 
@@ -66,26 +70,67 @@ const Signup = () => {
         <form className="sign-up-form" action="submit" onSubmit={handleFormSubmit}>
           <div className="sign-up-basic form-control">
             <h4>Personal Information</h4>
-            {submitted && valid ? <div className="success-msg">Success! Thank you for registering.</div> : null}
-            <input onChange={handleNameChange} values={values.name}type="text" name="name" placeholder="Full Name"/>
+            {submitted && valid && matchPassword ? 
+              <div className="success-msg">Success! Thank you for registering.
+              </div> : null}
+            <input 
+              onChange={handleNameChange} 
+              values={values.name}
+              type="text" 
+              name="name" 
+              placeholder="Full Name"/>
               {submitted && !values.name ? <span>Please enter your full name</span> : null}
-            <input onChange={handleEmailChange} values={values.email}type="email" name="email"  placeholder="Email"/>
+            <input 
+              onChange={handleEmailChange} 
+              values={values.email}
+              type="email" 
+              name="email"  
+              placeholder="Email"/>
               {submitted && !values.email ? <span>Please enter your Email</span> : null}
-            <input onChange={handlePasswordChange} values={values.password}type="password" name="password" placeholder="Password"/>
-              {submitted && !values.name ? <span>Please enter your password</span> : null}
-            <input onSubmit={confirmPassword} values={values.confirmPassword}type="password" name="confirmPassword" placeholder="Re-enter Password"/>
-              {submitted && !values.name ? <span>Please re-enter your password</span> : null}
-              {submitted && matchPassword ? <span>passwords do not match</span> : null}
+            <input 
+              onChange={handlePasswordChange} 
+              values={values.password}
+              type="password" 
+              name="password" 
+              placeholder="Password"/>
+              {submitted && !values.password ? <span>Please enter your password</span> : null}
+            <input 
+              onSubmit={confirmPassword} 
+              values={values.confirmPassword}
+              type="password" 
+              name="confirmPassword" 
+              placeholder="Re-enter Password"/>
           </div>
               <h4>Date of Birth</h4>
           <div className="sign-up-bday-gender form-control">
             <div className="sign-up-birthday">
-                <input onChange={handleMonthChange} values={values.month}type="text" name="month" placeholder="MM"/>
-                  {submitted && !values.name ? <span>Please enter your full name</span> : null}
-                <input onChange={handleDayChange} values={values.day}type="text" name="day" placeholder="DD"/>
-                  {submitted && !values.name ? <span>Please enter your full name</span> : null}
-                <input onChange={handleYearChange} values={values.year}type="text" name="year" placeholder="YYYY"/>
-                  {submitted && !values.name ? <span>Please enter your full name</span> : null}
+                <input 
+                  onChange={handleMonthChange} 
+                  values={values.month}
+                  type="text" 
+                  name="month" 
+                  maxLength="2"
+                  placeholder="MM"/>
+                  {submitted && !values.name ? 
+                  <span>Please enter your birth month</span> : null}
+                <input 
+                  onChange={handleDayChange} 
+                  values={values.day}
+                  type="text" 
+                  name="day" 
+                  maxLength="2"
+                  placeholder="DD"/>
+                  {submitted && !values.name ? 
+                  <span>Please enter your birth day</span> : null}
+                <input 
+                  onChange={handleYearChange} 
+                  values={values.year}
+                  type="text" 
+                  name="year" 
+                  maxLength="4"
+                  placeholder="YYYY"/>
+                  {submitted && !values.name ? 
+                  <span>Please enter your birth year</span> : null}
             </div>
             {/* <div className="sign-up-gender">
               <input type="radio" name="gender" value="male" id="gender-male"/>
@@ -102,11 +147,25 @@ const Signup = () => {
               <label htmlFor="payment-method-paypal">Paypal</label>
             </div> */}
             {/* -------------------------------------------------- */}
-            <input onChange={handleCardChange} name="card" values={values.card}type="text" placeholder="Card Number" />
-              {submitted && !values.name ? <span>Please enter your full name</span> : null}
+            <input 
+              onChange={handleCardChange} 
+              name="card" 
+              values={values.card}
+              type="text" 
+              maxLength="16"
+              placeholder="Card Number" />
+              {submitted && !values.name ? 
+              <span>Please enter a valid credit card number</span> : null}
             <div className="sign-up-payment-box select">
-              <input onChange={handleCvcChange} name="cvc" values={values.cvc}type="text" placeholder="Card CVC" />
-                {submitted && !values.name ? <span>Please enter your full name</span> : null}
+              <input 
+                onChange={handleCvcChange} 
+                name="cvc" 
+                values={values.cvc}
+                type="text" 
+                maxLength="3"
+                placeholder="Card CVC" />
+                {submitted && !values.name ? 
+                <span>Please enter a valid CVC number</span> : null}
               <select name="month" id="card-month">
                 <option value="01">01</option>
                 <option value="02">02</option>
