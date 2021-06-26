@@ -2,7 +2,15 @@ import React, { useState } from "react";
 
 const Signup = () => {
   const [values, setValues] = useState({
-    fullName: "",
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    month: "",
+    day: "",
+    year: "",
+    card: "",
+    cvc: "",
   })
 
   const [submitted, setSubmitted] = useState(false);
@@ -39,7 +47,9 @@ const Signup = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Check that all fields are filled out 
-    
+    if(values.name && values.email && values.password && values.confirmPassword && values.month && values.day && values.year && values.card && values.cvc)
+    setValid(true);
+    setSubmitted(true);
   }
 
   return (
@@ -48,17 +58,25 @@ const Signup = () => {
         <form className="sign-up-form" action="submit" onSubmit={handleFormSubmit}>
           <div className="sign-up-basic form-control">
             <h4>Personal Information</h4>
+            {submitted && valid ? <div className="success-msg">Success! Thank you for registering.</div> : null}
             <input onChange={handleNameChange} values={values.name}type="text" name="name" placeholder="Full Name"/>
+              {submitted && !values.name ? <span>Please enter your full name</span> : null}
             <input onChange={handleEmailChange} values={values.email}type="email" name="email"  placeholder="Email"/>
+              {submitted && !values.email ? <span>Please enter your Email</span> : null}
             <input onChange={handlePasswordChange} values={values.password}type="password" name="password" placeholder="Password"/>
+              {submitted && !values.name ? <span>Please enter your full name</span> : null}
             <input onChange={handleConfirmPasswordChange} values={values.password}type="password" name="confirmPassword" placeholder="Re-enter Password"/>
+              {submitted && !values.name ? <span>Please enter your full name</span> : null}
           </div>
               <h4>Date of Birth</h4>
           <div className="sign-up-bday-gender form-control">
             <div className="sign-up-birthday">
                 <input onChange={handleMonthChange} values={values.month}type="text" name="month" placeholder="MM"/>
+                  {submitted && !values.name ? <span>Please enter your full name</span> : null}
                 <input onChange={handleDayChange} values={values.day}type="text" name="day" placeholder="DD"/>
+                  {submitted && !values.name ? <span>Please enter your full name</span> : null}
                 <input onChange={handleYearChange} values={values.year}type="text" name="year" placeholder="YYYY"/>
+                  {submitted && !values.name ? <span>Please enter your full name</span> : null}
             </div>
             {/* <div className="sign-up-gender">
               <input type="radio" name="gender" value="male" id="gender-male"/>
@@ -76,8 +94,10 @@ const Signup = () => {
             </div> */}
             {/* -------------------------------------------------- */}
             <input onChange={handleCardChange} name="card" values={values.card}type="text" placeholder="Card Number" />
+              {submitted && !values.name ? <span>Please enter your full name</span> : null}
             <div className="sign-up-payment-box select">
               <input onChange={handleCvcChange} name="cvc" values={values.cvc}type="text" placeholder="Card CVC" />
+                {submitted && !values.name ? <span>Please enter your full name</span> : null}
               <select name="month" id="card-month">
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -103,9 +123,9 @@ const Signup = () => {
               </select>
             </div>
           </div>
-        </form>
+        <button className="sign-up-btn" type="submit">Submit</button>
         <button className="sign-up-btn">Reset</button>
-        <button className="sign-up-btn">Submit</button>
+        </form>
       </div>
 
       

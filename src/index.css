@@ -249,4 +249,10 @@ form span {
   margin-right: 1rem;
   font-size: 1.2rem;
   width: 80px;
+  cursor: pointer;
+}
+
+.sign-up-btn:hover {
+  background: var(--hover-color);
+  transition: var(--transition);
 }
