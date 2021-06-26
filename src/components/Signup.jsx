@@ -15,6 +15,7 @@ const Signup = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
+  const [matchPassword, setMatchPassword] = useState(false);
 
   const handleNameChange = (event) => {
     setValues({...values, name: event.target.value})
@@ -24,9 +25,6 @@ const Signup = () => {
   }
   const handlePasswordChange = (event) => {
     setValues({...values, password: event.target.value})
-  }
-  const handleConfirmPasswordChange = (event) => {
-    setValues({...values, confirmPassword: event.target.value})
   }
   const handleMonthChange = (event) => {
     setValues({...values, month: event.target.value})
@@ -43,14 +41,24 @@ const Signup = () => {
   const handleCvcChange = (event) => {
     setValues({...values, cvc: event.target.value})
   }
+   
+  const confirmPassword = (event) => {
+    if(values.password === values.confirmPassword) {
+      setMatchPassword(true);
+    } else {
+      alert("passwords do not match")
+    }
+  }
+
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Check that all fields are filled out 
-    if(values.name && values.email && values.password && values.confirmPassword && values.month && values.day && values.year && values.card && values.cvc)
+    if(values.name && values.email && values.password && values.month && values.day && values.year && values.card && values.cvc)
     setValid(true);
     setSubmitted(true);
   }
+ 
 
   return (
     <div className="sign-up">
@@ -64,9 +72,10 @@ const Signup = () => {
             <input onChange={handleEmailChange} values={values.email}type="email" name="email"  placeholder="Email"/>
               {submitted && !values.email ? <span>Please enter your Email</span> : null}
             <input onChange={handlePasswordChange} values={values.password}type="password" name="password" placeholder="Password"/>
-              {submitted && !values.name ? <span>Please enter your full name</span> : null}
-            <input onChange={handleConfirmPasswordChange} values={values.password}type="password" name="confirmPassword" placeholder="Re-enter Password"/>
-              {submitted && !values.name ? <span>Please enter your full name</span> : null}
+              {submitted && !values.name ? <span>Please enter your password</span> : null}
+            <input onSubmit={confirmPassword} values={values.confirmPassword}type="password" name="confirmPassword" placeholder="Re-enter Password"/>
+              {submitted && !values.name ? <span>Please re-enter your password</span> : null}
+              {submitted && matchPassword ? <span>passwords do not match</span> : null}
           </div>
               <h4>Date of Birth</h4>
           <div className="sign-up-bday-gender form-control">

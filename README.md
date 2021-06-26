@@ -27,6 +27,8 @@
 
 ### -DOB must contain valid date(external library to do this??)
 
+    --Create a max character length for the date inputs, so that month can only be 2 digits, year 4 digits, etc...
+
 ### -Credit Card input must contain valid card number
 
 ### -CVC must contain 3 digit number
