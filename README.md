@@ -45,6 +45,19 @@
 
 ###
 
+
+///////// Sunday Feb 6 2022====
+1.  Reset Button
+    -clears all fields
+
+2.  Error text
+    -make much smaller/ not break layout
+
+3.  Make sure all fields have appropriate error messages.
+
+4.  Functions/Hooks
+    -Export to their own file???
+
 ###
 
 ###

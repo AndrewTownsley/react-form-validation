@@ -53,6 +53,13 @@ const Signup = () => {
     }
   }
 
+  const formFieldReset = () => {
+    console.log("form reset");
+ 
+    setValid(false);
+    setSubmitted(false);
+  }
+
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -73,28 +80,32 @@ const Signup = () => {
             {submitted && valid && matchPassword ? 
               <div className="success-msg">Success! Thank you for registering.
               </div> : null}
-            <input 
+            <input
+              className={submitted && !values.name ? "sign-up-input error" : "sign-up-input"}
               onChange={handleNameChange} 
               values={values.name}
               type="text" 
               name="name" 
               placeholder="Full Name"/>
-              {submitted && !values.name ? <span>Please enter your full name</span> : null}
-            <input 
+              {submitted && !values.name ? <span>Please enter your full name</span> : "sign-up-input"}
+            <input
+              className={submitted && !values.email ? "sign-up-input error" : "sign-up-input"}
               onChange={handleEmailChange} 
               values={values.email}
               type="email" 
               name="email"  
               placeholder="Email"/>
               {submitted && !values.email ? <span>Please enter your Email</span> : null}
-            <input 
+            <input
+              className={submitted && !values.password ? "sign-up-input error" : "sign-up-input"} 
               onChange={handlePasswordChange} 
               values={values.password}
               type="password" 
               name="password" 
               placeholder="Password"/>
               {submitted && !values.password ? <span>Please enter your password</span> : null}
-            <input 
+            <input
+              className={submitted && !values.confirmPassword ? "sign-up-input error" : "sign-up-input"} 
               onSubmit={confirmPassword} 
               values={values.confirmPassword}
               type="password" 
@@ -104,7 +115,7 @@ const Signup = () => {
               <h4>Date of Birth</h4>
           <div className="sign-up-bday-gender form-control">
             <div className="sign-up-birthday">
-                <input 
+                <input
                   onChange={handleMonthChange} 
                   values={values.month}
                   type="text" 
@@ -113,7 +124,7 @@ const Signup = () => {
                   placeholder="MM"/>
                   {submitted && !values.name ? 
                   <span>Please enter your birth month</span> : null}
-                <input 
+                <input
                   onChange={handleDayChange} 
                   values={values.day}
                   type="text" 
@@ -122,7 +133,7 @@ const Signup = () => {
                   placeholder="DD"/>
                   {submitted && !values.name ? 
                   <span>Please enter your birth day</span> : null}
-                <input 
+                <input
                   onChange={handleYearChange} 
                   values={values.year}
                   type="text" 
@@ -133,21 +144,26 @@ const Signup = () => {
                   <span>Please enter your birth year</span> : null}
             </div>
             {/* <div className="sign-up-gender">
-              <input type="radio" name="gender" value="male" id="gender-male"/>
+              <input
+                className={} type="radio" name="gender" value="male" id="gender-male"/>
               <label htmlFor="gender-male">Male</label>
-              <input type="radio" name="gender" value="female" id="gender-female" checked/>
+              <input
+                className={} type="radio" name="gender" value="female" id="gender-female" checked/>
               <label htmlFor="gender-female">Female</label>
             </div>
           </div>
           <div className="sign-up-payment form-control">
             <div className="sign-up-payment-box">
-              <input type="radio" name="payment-method" value="card" id="payment-method-card" checked/>
+              <input
+                className={} type="radio" name="payment-method" value="card" id="payment-method-card" checked/>
               <label htmlFor="payment-method-card">Credit Card</label>
-              <input type="radio" name="payment-method" value="paypal" id="payment-method-paypal" />
+              <input
+                className={} type="radio" name="payment-method" value="paypal" id="payment-method-paypal" />
               <label htmlFor="payment-method-paypal">Paypal</label>
             </div> */}
             {/* -------------------------------------------------- */}
-            <input 
+            <input
+              className={submitted && !values.card ? "sign-up-input error" : "sign-up-input"}              
               onChange={handleCardChange} 
               name="card" 
               values={values.card}
@@ -157,7 +173,8 @@ const Signup = () => {
               {submitted && !values.name ? 
               <span>Please enter a valid credit card number</span> : null}
             <div className="sign-up-payment-box select">
-              <input 
+              <input
+                className={submitted && !values.cvc ? "sign-up-input error" : "sign-up-input"}
                 onChange={handleCvcChange} 
                 name="cvc" 
                 values={values.cvc}
@@ -192,8 +209,19 @@ const Signup = () => {
             </div>
           </div>
         <div className="btn-container">
-          <button className="sign-up-btn" type="submit">Submit</button>
-          <button className="sign-up-btn">Reset</button>
+          <button 
+            className="sign-up-btn" 
+            type="submit"
+          >
+            Submit
+          </button>
+          <button 
+            type="reset"
+            className="sign-up-btn"
+            onClick={formFieldReset}
+          >
+            Reset
+          </button>
         </div>
         </form>
       </div>

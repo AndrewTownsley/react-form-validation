@@ -6,6 +6,7 @@
   --accent-color: #c3a2ff;
   --light-gray-bg: #f9f9f9;
   --gray-border: #e5e5e5;
+  --error-border: 1px solid crimson;
   --brad-input: 3px;
   --pad-input: 10px;
   --transition: all 0.4s;
@@ -116,6 +117,7 @@ h4 {
 
 form span {
   color: crimson;
+  font-size: .75rem;
 }
 
 .login-btn {
@@ -162,7 +164,7 @@ form span {
   /* flex-direction: column; */
 }
 
-.sign-up-form input {
+.sign-up-input {
   margin-bottom: 1rem;
   width: 100%;
   line-height: 1.4;
@@ -170,6 +172,10 @@ form span {
   background-color: #f9f9f9;
   border: 1px solid #e5e5e5;
   border-radius: var(--brad-input);
+}
+
+.sign-up-input.error {
+  border: var(--error-border);
 }
 
 .form-control {
@@ -261,3 +267,4 @@ form span {
   background: var(--hover-color);
   transition: var(--transition);
 }
+
