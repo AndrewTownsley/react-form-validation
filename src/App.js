@@ -5,13 +5,20 @@ import './index.css';
 import LogIn from "./components/Login";
 import Signup from "./components/Signup";
 
+// ADD THIS TO YOUR PORTFOLIO
+// ADD THIS TO YOUR PORTFOLIO
+// ADD THIS TO YOUR PORTFOLIO
+// ADD THIS TO YOUR PORTFOLIO
+// ADD THIS TO YOUR PORTFOLIO
+// ADD THIS TO YOUR PORTFOL
+
 
 
 function App() {
   return (
     <BrowserRouter>
     <div className="app-main">
-        <nav className="navbar">
+        {/* <nav className="navbar">
           <h1>Web.com</h1>
             <div className="btn-container">
               <Link to="/login">
@@ -21,7 +28,7 @@ function App() {
                   <button className="main-btn">Sign Up</button>
               </Link>
             </div>
-        </nav>
+        </nav> */}
 
 {/* -------------------------------------------------------------------------- */}
             <Switch>

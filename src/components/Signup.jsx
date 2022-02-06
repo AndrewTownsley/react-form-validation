@@ -191,8 +191,10 @@ const Signup = () => {
               </select>
             </div>
           </div>
-        <button className="sign-up-btn" type="submit">Submit</button>
-        <button className="sign-up-btn">Reset</button>
+        <div className="btn-container">
+          <button className="sign-up-btn" type="submit">Submit</button>
+          <button className="sign-up-btn">Reset</button>
+        </div>
         </form>
       </div>
 

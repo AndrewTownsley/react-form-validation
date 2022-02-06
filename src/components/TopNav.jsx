@@ -8,14 +8,14 @@ const TopNav = () => {
     <>
      <BrowserRouter>
       <nav className="top-nav">
-        <h3>Web.com</h3>
+        {/* <h3>Web.com</h3> */}
         <div className="btn-container">
-          <button className="main-btn">
+          {/* <button className="main-btn">
             <Link to="/login">Log In</Link>
           </button>
           <button className="main-btn">
             <Link to="/signup">Sign up</Link>
-          </button>
+          </button> */}
             <Switch>
               <Route path="/login" >
                 <Login/>
