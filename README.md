@@ -58,100 +58,52 @@
 4.  Functions/Hooks
     -Export to their own file???
 
-###
 
-###
 
-###
+***********************************************************************************************
+Sign Up Form Error Message tests...
 
-###
+Does Error message appear when field is blank?
 
-###
+<!-- 1. Full Name -->
+<!-- 2. Email -->
+3. Password *** yes, but displays incorrect password msg, not blank field msg.
+4. Re-enter Password *** yes, but just the red error border
+5. MM *** yes, but just the red error border
+6. DD *** yes, but just the red error border
+7. YYYY *** yes, but just the red error border
+8. Card Number *** yes, but just the red error border
+9. Card cvc *** yes, but just the red error border
 
-###
+Does Error message appear when field is not complete (too short, number/text instead of number/text)?
 
-###
+1. Full Name
+2. Email
+3. Password
+4. Re-enter Password
+5. MM
+6. DD
+7. YYYY
+8. Card Number
+9. Card cvc
+Does Error message appear when field is blank?
 
-###
+1. Full Name
+2. Email
+3. Password
+4. Re-enter Password
+5. MM
+6. DD
+7. YYYY
+8. Card Number
+9. Card cvc
 
-###
+Does Error message appear when Email is invalid?
 
-###
+2. Email
 
-###
+Does Error message appear when passwords do not match?
 
-###
+3. Password
+4. Re-enter Password
 
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
-
-###
