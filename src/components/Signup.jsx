@@ -16,12 +16,22 @@ const Signup = () => {
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
   const [matchPassword, setMatchPassword] = useState(false);
+  const [emailVerification, setEmailVerification] = useState(false);
 
   const handleNameChange = (event) => {
     setValues({...values, name: event.target.value})
   }
   const handleEmailChange = (event) => {
     setValues({...values, email: event.target.value})
+    console.log("verify email");
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (re.test(event.target.value.trim())) {    
+    setEmailVerification(true);
+    console.log("Email VALID!!!!!");
+  } else {
+    setEmailVerification(false);
+    console.log("Email NOT valid");
+ };
   }
   const handlePasswordChange = (event) => {
     setValues({...values, password: event.target.value})
@@ -45,13 +55,26 @@ const Signup = () => {
     setValues({...values, cvc: event.target.value})
   }
    
-  const confirmPassword = (event) => {
-    if(values.password === values.confirmPassword) {
+  const confirmPassword = () => {
+    if((values.password && values.confirmPassword) && (values.password === values.confirmPassword)) {
       setMatchPassword(true);
+      console.log("Passwords match");
     } else {
       console.log("Passwords do not match");
     }
   }
+
+//   const verifyEmailInput = (e) => {
+//     console.log("verify email");
+//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   if (re.test(e.target.value.trim())) {    
+//     setEmailVerification(true);
+//     console.log("Email VALID!!!!!");
+//   } else {
+//     setEmailVerification(false);
+//     console.log("Email NOT valid");
+//  };
+//   }
 
   const formFieldReset = () => {
     console.log("form reset");
@@ -63,9 +86,11 @@ const Signup = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    confirmPassword();
     // Check that all fields are filled out 
     console.log("submitted: ", submitted);
-    if(values.name && values.email && values.password && values.month && values.day && values.year && values.card && values.cvc && matchPassword) {
+    console.log("emailVerification: ", emailVerification);
+    if(values.name && values.email && values.password && values.month && values.day && values.year && values.card && values.cvc && matchPassword && emailVerification) {
       setValid(true);
       setSubmitted(true);
       setMatchPassword(true);
@@ -94,11 +119,12 @@ const Signup = () => {
             <input
               className={submitted && !values.email ? "sign-up-input error" : "sign-up-input"}
               onChange={handleEmailChange} 
+              // onBlur={verifyEmailInput}
               values={values.email}
-              type="email" 
+              // type="email" 
               name="email"  
               placeholder="Email"/>
-              {submitted && !values.email ? <span>Please enter your Email</span> : null}
+              {(submitted && !values.email) || (submitted && !emailVerification) ? <span>Please enter your Email</span> : null}
             <input
               className={submitted && !values.password ? "sign-up-input error" : "sign-up-input"} 
               onChange={handlePasswordChange} 
@@ -177,6 +203,7 @@ const Signup = () => {
               values={values.card}
               type="text" 
               maxLength="16"
+              minLength="16"
               placeholder="Card Number" />
               {submitted && !values.card ? 
               <span>Please enter a valid credit card number</span> : null}
@@ -220,6 +247,7 @@ const Signup = () => {
           <button 
             className="sign-up-btn" 
             type="submit"
+            // onClick={verifyEmailInput}
           >
             Submit
           </button>
