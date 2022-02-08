@@ -18,17 +18,17 @@ function App() {
   return (
     <BrowserRouter>
     <div className="app-main">
-        {/* <nav className="navbar">
+        <nav className="navbar">
           <h1>Web.com</h1>
             <div className="btn-container">
-              <Link to="/login">
+              {/* <Link to="/login">
                 <button className="main-btn">Log In</button>
-              </Link>
+              </Link> */}
               <Link to="/signup">
                   <button className="main-btn">Sign Up</button>
               </Link>
             </div>
-        </nav> */}
+        </nav>
 
 {/* -------------------------------------------------------------------------- */}
             <Switch>

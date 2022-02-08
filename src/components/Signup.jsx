@@ -14,6 +14,7 @@ const Signup = () => {
   })
 
   const [submitted, setSubmitted] = useState(false);
+  const [attemptSubmit, setAttemptSubmit] = useState(false);
   const [valid, setValid] = useState(false);
   const [matchPassword, setMatchPassword] = useState(false);
   const [emailVerification, setEmailVerification] = useState(false);
@@ -54,6 +55,9 @@ const Signup = () => {
   const handleCvcChange = (event) => {
     setValues({...values, cvc: event.target.value})
   }
+
+  /////////////////////////////////////
+  // Add minimum length to password
    
   const confirmPassword = () => {
     if((values.password && values.confirmPassword) && (values.password === values.confirmPassword)) {
@@ -83,10 +87,27 @@ const Signup = () => {
     setSubmitted(false);
   }
 
+  ////////////////////////////////////////////////////////
+  // Verify that number inputs have only numbers
+
+
+
+  /////////////////////////////////////////
+  // Maybe try to put handleFormSubmit into a useEffect?????
+  // Maybe try to put handleFormSubmit into a useEffect?????
+  // Maybe try to put handleFormSubmit into a useEffect?????
+  // Maybe try to put handleFormSubmit into a useEffect?????
+  // Maybe try to put handleFormSubmit into a useEffect?????
+  // Maybe try to put handleFormSubmit into a useEffect?????
+  // Maybe try to put handleFormSubmit into a useEffect?????
+  // Maybe try to put handleFormSubmit into a useEffect?????
+  // Maybe try to put handleFormSubmit into a useEffect?????
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     confirmPassword();
+    setAttemptSubmit(true);
+    console.log("attemptSubmit: ", attemptSubmit);
     // Check that all fields are filled out 
     console.log("submitted: ", submitted);
     console.log("emailVerification: ", emailVerification);
@@ -105,76 +126,76 @@ const Signup = () => {
         <form className="sign-up-form" action="submit" onSubmit={handleFormSubmit}>
           <div className="sign-up-basic form-control">
             <h4>Personal Information</h4>
-            {submitted && valid && matchPassword ? 
+            {attemptSubmit && valid && matchPassword ? 
               <div className="success-msg">Success! Thank you for registering.
               </div> : null}
             <input
-              className={submitted && !values.name ? "sign-up-input error" : "sign-up-input"}
+              className={attemptSubmit && !values.name ? "sign-up-input error" : "sign-up-input"}
               onChange={handleNameChange} 
               values={values.name}
               type="text" 
               name="name" 
               placeholder="Full Name"/>
-              {submitted && !values.name ? <span>Please enter your full name</span> : null}
+              {attemptSubmit && !values.name ? <span>Please enter your full name</span> : null}
             <input
-              className={submitted && !values.email ? "sign-up-input error" : "sign-up-input"}
+              className={attemptSubmit && !values.email ? "sign-up-input error" : "sign-up-input"}
               onChange={handleEmailChange} 
               // onBlur={verifyEmailInput}
               values={values.email}
-              // type="email" 
+              type="email" 
               name="email"  
               placeholder="Email"/>
-              {(submitted && !values.email) || (submitted && !emailVerification) ? <span>Please enter your Email</span> : null}
+              {(attemptSubmit && !values.email) || (attemptSubmit && !emailVerification) ? <span>Please enter your Email</span> : null}
             <input
-              className={submitted && !values.password ? "sign-up-input error" : "sign-up-input"} 
+              className={attemptSubmit && !values.password ? "sign-up-input error" : "sign-up-input"} 
               onChange={handlePasswordChange} 
               values={values.password}
               type="password" 
               name="password" 
               placeholder="Password"/>
-              {submitted && !values.password ? <span>Please enter your password</span> : null}
+              {attemptSubmit && !values.password ? <span>Please enter your password</span> : null}
             <input
-              className={submitted && !values.confirmPassword ? "sign-up-input error" : "sign-up-input"} 
+              className={attemptSubmit && !values.confirmPassword ? "sign-up-input error" : "sign-up-input"} 
               onSubmit={confirmPassword} 
               onChange={handleConfirmPasswordChange} 
               values={values.confirmPassword}
               type="password" 
               name="confirmPassword" 
               placeholder="Re-enter Password"/>
-              {submitted && !values.confirmPassword ? <span>Please re-enter your password</span> : null}
+              {attemptSubmit && !values.confirmPassword ? <span>Please re-enter your password</span> : null}
           </div>
               <h4>Date of Birth</h4>
           <div className="sign-up-bday-gender form-control">
             <div className="sign-up-birthday">
                 <input
-                  className={submitted && !values.month ? "sign-up-input error" : "sign-up-input"} 
+                  className={attemptSubmit && !values.month ? "sign-up-input error" : "sign-up-input"} 
                   onChange={handleMonthChange} 
                   values={values.month}
                   type="text" 
                   name="month" 
                   maxLength="2"
                   placeholder="MM"/>
-                  {submitted && !values.month ? 
+                  {attemptSubmit && !values.month ? 
                   <span>Please enter your birth month</span> : null}
                 <input
-                  className={submitted && !values.day ? "sign-up-input error" : "sign-up-input"} 
+                  className={attemptSubmit && !values.day ? "sign-up-input error" : "sign-up-input"} 
                   onChange={handleDayChange} 
                   values={values.day}
                   type="text" 
                   name="day" 
                   maxLength="2"
                   placeholder="DD"/>
-                  {submitted && !values.day ? 
+                  {attemptSubmit && !values.day ? 
                   <span>Please enter your birth day</span> : null}
                 <input
-                  className={submitted && !values.year ? "sign-up-input error" : "sign-up-input"} 
+                  className={attemptSubmit && !values.year ? "sign-up-input error" : "sign-up-input"} 
                   onChange={handleYearChange} 
                   values={values.year}
                   type="text" 
                   name="year" 
                   maxLength="4"
                   placeholder="YYYY"/>
-                  {submitted && !values.year ? 
+                  {attemptSubmit && !values.year ? 
                   <span>Please enter your birth year</span> : null}
             </div>
             {/* <div className="sign-up-gender">
@@ -197,7 +218,7 @@ const Signup = () => {
             </div> */}
             {/* -------------------------------------------------- */}
             <input
-              className={submitted && !values.card ? "sign-up-input error" : "sign-up-input"}              
+              className={attemptSubmit && !values.card ? "sign-up-input error" : "sign-up-input"}              
               onChange={handleCardChange} 
               name="card" 
               values={values.card}
@@ -205,18 +226,18 @@ const Signup = () => {
               maxLength="16"
               minLength="16"
               placeholder="Card Number" />
-              {submitted && !values.card ? 
+              {attemptSubmit && !values.card ? 
               <span>Please enter a valid credit card number</span> : null}
             <div className="sign-up-payment-box select">
               <input
-                className={submitted && !values.cvc ? "sign-up-input error" : "sign-up-input"}
+                className={attemptSubmit && !values.cvc ? "sign-up-input error" : "sign-up-input"}
                 onChange={handleCvcChange} 
                 name="cvc" 
                 values={values.cvc}
                 type="text" 
                 maxLength="3"
                 placeholder="Card CVC" />
-                {submitted && !values.cvc ? 
+                {attemptSubmit && !values.cvc ? 
                 <span>Please enter a valid CVC number</span> : null}
               <select name="month" id="card-month" className="sign-up-input">
                 <option value="01">01</option>
